@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Task from './Task';
+import TaskContext from '../context/TaskContext';
 
-const TaskList = ({tasks, removeTask,doneTask}) => {
+const TaskList = () => {
 
-  
+  const {tasks} = useContext(TaskContext);
 
 
   return (
@@ -12,7 +13,7 @@ const TaskList = ({tasks, removeTask,doneTask}) => {
         (Total {tasks.length}, Done {tasks.filter((el) => el.isDone).length})
       </h3>
       {tasks.map((el)=> (
-        <Task job={el} key={el.id} removeTask={removeTask} doneTask={doneTask} />
+        <Task job={el} key={el.id}  />
         ))}
     </div>
   )
